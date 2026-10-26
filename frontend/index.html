@@ -5,7 +5,122 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>FitPulse — 24-Formula Fitness Intelligence & Personal Metrics API</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    #master .master-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    #master .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    #master .formula-row {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+      gap: 8px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    #master .formula-row:hover {
+      border-color: #99f6e4;
+      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.06);
+    }
+    #master .formula-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    #master .formula-title {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+    }
+    #master .formula-title .num {
+      flex-shrink: 0;
+      margin-right: 0;
+      margin-top: 1px;
+    }
+    #master .formula-title b {
+      display: block;
+      font-size: 13.5px;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+    #master .formula-title small {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--pri);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
+    }
+    #master .formula-val {
+      flex-shrink: 0;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    #master .formula-eq {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      border-radius: 7px;
+      padding: 5px 9px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+    #master .formula-vars {
+      font-size: 11.5px;
+      color: #334155;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 5px 9px;
+      line-height: 1.45;
+    }
+    #master .formula-vars b {
+      color: #0f766e;
+    }
+    #master .formula-desc {
+      font-size: 12px;
+      color: var(--mute);
+      line-height: 1.45;
+      border-top: 1px dashed #e2e8f0;
+      padding-top: 6px;
+    }
+    #master .formula-ex {
+      font-size: 11.5px;
+      color: #1e293b;
+      background: #f1f5f9;
+      border-left: 3px solid var(--pri);
+      border-radius: 5px;
+      padding: 6px 9px;
+      line-height: 1.45;
+    }
+    #master .formula-ex b {
+      color: var(--pri);
+    }
+    @media (max-width: 1050px) {
+      #master .master-layout,
+      #master .matrix-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 <nav>
@@ -114,8 +229,8 @@
     <div class="eyebrow">Comprehensive Analytical Engine</div>
     <h2>24-Formula Master Fitness Report Sheet</h2>
     <p class="sub">Enter athlete biometrics and session data once — FitPulse runs all <b>24 scientific formulas across 5 domains</b> and generates a downloadable PDF Report Sheet.</p>
-    <div class="grid2" style="grid-template-columns:1fr 1.35fr">
-      <div class="card">
+    <div class="master-layout">
+      <div class="card" style="position:sticky;top:76px">
         <h3>Athlete &amp; Biometric Inputs</h3>
         <div class="f3">
           <div><label>Athlete Name</label><input id="mName" value="Majit · 23MIC0052"></div>
@@ -521,15 +636,124 @@ function masterPayload() {
   };
 }
 
+const FORMULA_GUIDE = {
+  1: {formula: 'BMR = 10×W + 6.25×H − 5×A + S', meaning: 'Resting calories your body burns in 24h just to stay alive (breathing, organs, circulation).'},
+  2: {formula: 'BMR = 88.362 + 13.397×W + 4.799×H − 5.677×A', meaning: 'Classic clinical BMR cross-check; slightly higher than Mifflin-St Jeor for active builds.'},
+  3: {formula: 'TDEE = BMR × AF · Katch_BMR = 370 + 21.6 × LBM', meaning: 'Total Daily Energy Expenditure to maintain current weight; Katch-McArdle uses lean muscle mass.'},
+  4: {formula: 'Calories = (MET × 3.5 × W ÷ 200) × T', meaning: 'Active calories burned during this specific sport session using Compendium MET values.'},
+  5: {formula: 'Tanaka_MHR = 208 − 0.7×A · Fox_MHR = 220 − A', meaning: 'Your ceiling heart rate during all-out effort; anchors safe training intensity zones.'},
+  6: {formula: 'HRR = MHR − RHR · %HRR = (AvgHR − RHR) ÷ HRR', meaning: 'Working heart-rate range (HRR) and which of the 5 training zones your session Avg HR falls into.'},
+  7: {formula: 'VO2max = (D_12min − 504.9) ÷ 44.73', meaning: 'Field-test aerobic capacity (max oxygen uptake per kg bodyweight) from a 12-minute run test.'},
+  8: {formula: 'VO2max = 15.3 × (MHR ÷ RHR)', meaning: 'Non-exercise VO2max estimate from heart-rate efficiency, plus your ACSM aerobic fitness tier.'},
+  9: {formula: 'Pace = T ÷ D · Speed = D ÷ (T ÷ 60)', meaning: 'Minutes taken per kilometer and average velocity in km/h for your timed run.'},
+  10: {formula: 'T2 = T1 × (D2 ÷ D1)^1.06', meaning: 'Predicts your 10K finish time from your 5K time accounting for a 6% endurance fatigue decay.'},
+  11: {formula: '1RM = L × (1 + R ÷ 30)', meaning: 'Estimated maximum weight you can lift for 1 single rep based on a submaximal set.'},
+  12: {formula: '1RM = L × 36 ÷ (37 − R)', meaning: 'Conservative 1RM estimate that is highly accurate for lower rep ranges (1–10 reps).'},
+  13: {formula: 'RSI = 1RM_consensus ÷ BW', meaning: 'Pound-for-pound strength ratio comparing your 1-Rep Max directly against your bodyweight.'},
+  14: {formula: 'Tier = Lookup(RSI vs Lift Thresholds)', meaning: 'Ranks your lift against strength standards for that movement (e.g., ≥1.25× BW bench = Intermediate).'},
+  15: {formula: 'Volume = Σ (L_i × R_i) for i = 1..n sets', meaning: 'Total mechanical tonnage lifted in the gym session and the primary training stimulus.'},
+  16: {formula: 'Banister = T × ΔHR × 0.64×e^(k·ΔHR) · Edwards = T × Z', meaning: 'Internal physiological stress score combining workout duration and heart-rate intensity.'},
+  17: {formula: 'ACWR = Load_7d ÷ Load_28d', meaning: 'Injury-risk gauge (Gabbett model): 0.8–1.3 is the Sweet Spot; >1.5 signals overtraining risk.'},
+  18: {formula: 'Monotony = μ_7d ÷ σ_7d · Strain = W_load × Monotony', meaning: 'Foster index of load variation (<1.5 is healthy variety; >2.0 means repetitive strain).'},
+  19: {formula: 'Readiness = 100 − (P_fatigue + P_hr + P_sleep + P_sore)', meaning: 'Daily CNS/muscular recovery score indicating if you are ready for high-intensity training.'},
+  20: {formula: 'Fluid_L = SweatLoss_L × 1.25', meaning: 'Recommended post-workout recovery window and fluid/electrolyte rehydration target.'},
+  21: {formula: 'BMI = W ÷ H_m² · PI = W ÷ H_m³', meaning: 'Weight-to-height screening category plus 3D Ponderal Index (more accurate for tall/short athletes).'},
+  22: {formula: 'BF% = 495 ÷ (1.0324 − 0.19077×log10(Waist−Neck) + 0.15456×log10(H)) − 450', meaning: 'Estimates body fat % and lean muscle mass (kg) from tape-measure waist, neck, and height.'},
+  23: {formula: 'IBW = Mean(Hamwi, Devine, Robinson, Miller) · Devine = 50 + 2.3 × InOver5ft', meaning: 'Consensus healthy reference weight and ±10% athletic frame range for your height.'},
+  24: {formula: 'FitnessAge = 20 + (NormVO2_20 − VO2max) ÷ 0.35', meaning: 'How old your cardiovascular system acts compared to your actual age based on VO2max.'}
+};
+
+function buildVariables(id, p) {
+  const hm = (p.height / 100).toFixed(2);
+  const inOver5 = Math.max(0, p.height / 2.54 - 60).toFixed(1);
+  const varMap = {
+    1: `<b>W</b> = Weight (${p.weight} kg) · <b>H</b> = Height (${p.height} cm) · <b>A</b> = Age (${p.age} yrs) · <b>S</b> = Sex constant (+5 male, −161 female)`,
+    2: `<b>W</b> = Weight (${p.weight} kg) · <b>H</b> = Height (${p.height} cm) · <b>A</b> = Age (${p.age} yrs) · <b>88.362</b> = Male intercept (447.593 female)`,
+    3: `<b>BMR</b> = Resting calories · <b>AF</b> = Activity Factor (${p.activityLevel}) · <b>LBM</b> = Lean Body Mass (kg of fat-free muscle/bone)`,
+    4: `<b>MET</b> = Metabolic Equivalent of Task (${p.activity}) · <b>W</b> = Weight (${p.weight} kg) · <b>T</b> = Duration (${p.duration} min) · <b>3.5</b> = Resting O₂ constant (ml/kg/min)`,
+    5: `<b>A</b> = Age (${p.age} yrs) · <b>208 &amp; 0.7</b> = Tanaka regression constants · <b>220</b> = Classic Fox ceiling · <b>MHR</b> = Max Heart Rate (bpm)`,
+    6: `<b>MHR</b> = Max HR · <b>RHR</b> = Resting HR (${p.restingHr} bpm) · <b>AvgHR</b> = Session Avg HR (${p.avgHr} bpm) · <b>HRR</b> = Heart Rate Reserve`,
+    7: `<b>D_12min</b> = 12-min run distance (${p.cooperDistance} m) · <b>504.9 &amp; 44.73</b> = Cooper linear O₂ regression constants`,
+    8: `<b>MHR</b> = Max Heart Rate (bpm) · <b>RHR</b> = Resting Heart Rate (${p.restingHr} bpm) · <b>15.3</b> = Uth proportionality constant (ml/kg/min)`,
+    9: `<b>T</b> = Run Time (${p.paceDurationMin} min) · <b>D</b> = Run Distance (5 km) · <b>60</b> = Minutes-to-hours conversion factor`,
+    10: `<b>T1</b> = Known 5K Time (${p.paceDurationMin} min) · <b>D1</b> = Known Distance (5 km) · <b>D2</b> = Target Race Distance (10 km) · <b>1.06</b> = Riegel fatigue decay exponent`,
+    11: `<b>L</b> = Lifted Weight (${p.liftWeight} kg) · <b>R</b> = Repetitions completed (${p.liftReps} reps) · <b>30</b> = Epley fatigue divisor (+3.33% per rep)`,
+    12: `<b>L</b> = Lifted Weight (${p.liftWeight} kg) · <b>R</b> = Repetitions completed (${p.liftReps} reps) · <b>36 &amp; 37</b> = Brzycki linear rep-decay constants`,
+    13: `<b>1RM_consensus</b> = Average of Epley, Brzycki &amp; Lombardi 1RM (kg) · <b>BW</b> = Athlete Bodyweight (${p.weight} kg)`,
+    14: `<b>RSI</b> = Relative Strength Index (×BW) · <b>Bench Thresholds</b>: Beginner &lt;0.75× · Novice ≥0.75× · Intermediate ≥1.25× · Advanced ≥1.5× · Elite ≥2.0×`,
+    15: `<b>L_i</b> = Weight lifted in set i (kg) · <b>R_i</b> = Reps performed in set i · <b>n</b> = Total working sets in session`,
+    16: `<b>T</b> = Duration (${p.duration} min) · <b>ΔHR</b> = Fractional HR Reserve ((AvgHR−RHR)÷(MHR−RHR)) · <b>k</b> = Sex weighting (1.92 M, 1.67 F) · <b>Z</b> = HR Zone (1–5)`,
+    17: `<b>Load_7d</b> = 7-day Acute daily TRIMP average (fatigue) · <b>Load_28d</b> = 28-day Chronic daily TRIMP average (fitness)`,
+    18: `<b>μ_7d</b> = 7-day mean daily load · <b>σ_7d</b> = 7-day standard deviation of daily load · <b>W_load</b> = 7-day total weekly load`,
+    19: `<b>P_fatigue</b> = Unrecovered load penalty · <b>P_hr</b> = Elevated morning RHR penalty · <b>P_sleep</b> = Sleep deficit (&lt;8h) · <b>P_sore</b> = Muscle soreness (1–5)`,
+    20: `<b>SweatLoss_L</b> = Estimated sweat lost from duration, intensity &amp; climate (L) · <b>1.25</b> = ACSM 125% post-exercise fluid replacement factor`,
+    21: `<b>W</b> = Weight (${p.weight} kg) · <b>H_m</b> = Height in meters (${hm} m) · <b>PI</b> = Rohrer's 3D Ponderal Index (kg/m³)`,
+    22: `<b>Waist</b> = ${p.waist} cm · <b>Neck</b> = ${p.neck} cm · <b>H</b> = Height (${p.height} cm) · <b>495 &amp; 450</b> = Siri body-density constants · <b>LeanMass</b> = W × (1 − BF%/100)`,
+    23: `<b>InOver5ft</b> = (Height_cm ÷ 2.54) − 60 (${inOver5} in) · <b>50 kg</b> = Base weight at 5 ft (45.5 kg F) · <b>2.3 kg</b> = Added weight per inch over 5 ft`,
+    24: `<b>VO2max</b> = Athlete aerobic capacity (ml/kg/min) · <b>NormVO2_20</b> = 20yo baseline (48 M / 40 F) · <b>0.35</b> = Average VO₂max decline per year of age`
+  };
+  return varMap[id] || '';
+}
+
+function buildExample(id, p, fVal) {
+  const hm = (p.height / 100).toFixed(2);
+  const exMap = {
+    1: `10×${p.weight} + 6.25×${p.height} − 5×${p.age} ${p.gender==='male'?'+ 5':'− 161'} = <b>${fVal}</b> burned at complete rest.`,
+    2: `For a ${p.age}yo (${p.weight} kg, ${p.height} cm), Harris-Benedict gives <b>${fVal}</b> as a clinical baseline check.`,
+    3: `Mifflin BMR × activity multiplier (${p.activityLevel}) = <b>${fVal}</b> total daily energy needed to maintain ${p.weight} kg.`,
+    4: `${p.duration} min of ${p.activity} at ${p.weight} kg bodyweight burns <b>${fVal}</b> during the session.`,
+    5: `At age ${p.age}: Tanaka (208 − 0.7×${p.age}) & Fox (220 − ${p.age}) give <b>${fVal}</b> max heart rate.`,
+    6: `With Resting HR ${p.restingHr} bpm and Avg HR ${p.avgHr} bpm, the athlete trains at <b>${fVal}</b>.`,
+    7: `Running ${p.cooperDistance} m in 12 min → (${p.cooperDistance} − 504.9) ÷ 44.73 = <b>${fVal}</b> max oxygen uptake.`,
+    8: `15.3 × (MaxHR ÷ ${p.restingHr} RestHR) = <b>${fVal}</b> non-exercise aerobic fitness score.`,
+    9: `Running 5 km in ${p.paceDurationMin} min equals a pace & speed of <b>${fVal}</b>.`,
+    10: `${p.paceDurationMin} min 5K × (10 km ÷ 5 km)^1.06 predicts a 10K finish time of <b>${fVal}</b>.`,
+    11: `Lifting ${p.liftWeight} kg for ${p.liftReps} reps → ${p.liftWeight} × (1 + ${p.liftReps}/30) = <b>${fVal}</b> max single lift.`,
+    12: `${p.liftWeight} kg × 36 ÷ (37 − ${p.liftReps} reps) = <b>${fVal}</b> conservative 1-Rep Max.`,
+    13: `Consensus 1RM ÷ ${p.weight} kg bodyweight = <b>${fVal}</b> pound-for-pound strength ratio.`,
+    14: `Based on the bodyweight-to-lift ratio, the athlete's bench press ranks as <b>${fVal}</b>.`,
+    15: `Bench (${p.liftWeight}×${p.liftReps}) + Squat (100×5) sets = <b>${fVal}</b> total mechanical tonnage moved.`,
+    16: `${p.duration} min at ${p.avgHr} bpm Avg HR produces <b>${fVal}</b> internal physiological stress points.`,
+    17: `7-day acute load ÷ 28-day chronic load = <b>${fVal}</b> (0.8–1.3 is the injury-free Sweet Spot).`,
+    18: `Weekly load mean ÷ std-dev = <b>${fVal}</b> (<1.5 monotony means healthy hard/easy day variety).`,
+    19: `Combining sleep (7.5h), soreness (2/5), and HR recovery gives <b>${fVal}</b> readiness to train today.`,
+    20: `For this workout load at ${p.weight} kg, FitPulse prescribes <b>${fVal}</b> (125% sweat replacement).`,
+    21: `${p.weight} kg ÷ (${hm} m)² = <b>${fVal}</b> (18.5–24.9 kg/m² is Normal healthy weight-for-height).`,
+    22: `Waist ${p.waist} cm & Neck ${p.neck} cm at ${p.height} cm height = <b>${fVal}</b> body fat & lean muscle mass.`,
+    23: `For ${p.height} cm height, the 4-formula consensus ideal weight & ±10% frame range is <b>${fVal}</b>.`,
+    24: `Comparing VO₂max against age-${p.age} population norms gives a cardiovascular fitness age of <b>${fVal}</b>.`
+  };
+  return exMap[id] || '';
+}
+
 async function runMaster() {
-  const res = await post('/fitness/full-analysis', masterPayload());
+  const payload = masterPayload();
+  const res = await post('/fitness/full-analysis', payload);
   if (!res.success) return;
-  $('mMatrix').innerHTML = res.data.formulasSummary.map(f => `
+  $('mMatrix').innerHTML = res.data.formulasSummary.map(f => {
+    const g = FORMULA_GUIDE[f.id] || {};
+    const eq = f.formula || g.formula || '';
+    const vars = buildVariables(f.id, payload) || f.variables || '';
+    const desc = f.meaning || g.meaning || '';
+    const ex = buildExample(f.id, payload, f.value) || f.example || '';
+    return `
     <div class="formula-row">
-      <div><span class="num">${f.id}</span><b>${f.name}</b><br><small style="color:var(--mute);margin-left:34px">${f.domain}</small></div>
-      <span class="chip gr" style="font-size:12px">${f.value}</span>
+      <div class="formula-top">
+        <div class="formula-title">
+          <span class="num">${f.id}</span>
+          <div>
+            <b>${f.name}</b>
+            <small>${f.domain}</small>
+          </div>
+        </div>
+        <span class="chip gr formula-val">${f.value}</span>
+      </div>
+      ${eq ? `<div class="formula-eq">ƒ: ${eq}</div>` : ''}
+      ${vars ? `<div class="formula-vars"><b>Variables:</b> ${vars}</div>` : ''}
+      ${desc ? `<div class="formula-desc"><b>What it is:</b> ${desc}</div>` : ''}
+      ${ex ? `<div class="formula-ex"><b>Example:</b> ${ex}</div>` : ''}
     </div>
-  `).join('');
+  `}).join('');
 }
 
 async function downloadMasterPdf() {

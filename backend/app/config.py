@@ -23,6 +23,7 @@ PARTNER_API_KEYS = [
     if k.strip()
 ]
 RATE_LIMIT_PER_MIN = int(os.getenv("RATE_LIMIT_PER_MIN", "60"))
-KEY_DB_PATH = os.getenv("KEY_DB_PATH", str(BACKEND_DIR / "fitpulse_keys.db"))
+_default_db = "/tmp/fitpulse_keys.db" if os.getenv("VERCEL") else str(BACKEND_DIR / "fitpulse_keys.db")
+KEY_DB_PATH = os.getenv("KEY_DB_PATH", _default_db)
 
 CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")

@@ -342,7 +342,7 @@ def comprehensive_24_analysis(d: dict) -> dict:
             "name": "Recovery & Hydration Plan",
             "value": f"~{workout['recoveryHours']}h rest · {workout['hydration']['drinkLitres']} L fluid",
             "formula": "Fluid_L = SweatLoss_L × 1.25",
-            "variables": f"SweatLoss_L = Estimated sweat lost from duration, intensity & climate ({workout['hydration']['estimatedSweatLossLitres']} L) · 1.25 = ACSM 125% post-exercise fluid replacement factor",
+            "variables": f"SweatLoss_L = Estimated sweat lost from duration, intensity & climate ({workout['hydration'].get('sweatLossLitres', round(workout['hydration']['drinkLitres'] / 1.25, 2))} L) · 1.25 = ACSM 125% post-exercise fluid replacement factor",
             "meaning": "Recommended post-workout recovery window and fluid/electrolyte rehydration target.",
             "example": f"After this session, rest ~{workout['recoveryHours']}h before hard training and drink {workout['hydration']['drinkLitres']} L fluid.",
         },

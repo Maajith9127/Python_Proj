@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FitPulse — Fitness Analytics & Personal Metrics API. Calculate BMI, BMR, daily calories, and macronutrient targets with developer-friendly REST endpoints.">
+  <title>FitPulse — Fitness Analytics & Personal Metrics API</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 1. Top Navigation -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#" class="logo-group" id="nav-brand">
+        <div class="logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+          </svg>
+        </div>
+        <span>Fit<span class="logo-pulse-text">Pulse</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#metrics" class="nav-link" id="link-dashboard">Dashboard</a>
+        <a href="#calculator" class="nav-link" id="link-calculator">Calculator</a>
+        <a href="#playground" class="nav-link" id="link-playground">API Playground</a>
+        <a href="#services" class="nav-link" id="link-documentation">Documentation</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="api-status-badge" title="FitPulse API systems operational">
+          <span class="status-dot"></span>
+          <span>API Status: 99.98%</span>
+        </div>
+        <a href="#playground" class="btn btn-primary" id="btn-get-started">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            FitPulse REST Engine v1.0
+          </div>
+          <h1 class="hero-title">Fitness intelligence, delivered as an API.</h1>
+          <p class="hero-description">
+            Calculate personalized fitness metrics and integrate them directly into your own applications through simple, developer-friendly APIs.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#services" class="btn btn-primary" id="hero-btn-explore">Explore API</a>
+            <a href="#calculator" class="btn btn-secondary" id="hero-btn-calculator">Try Calculator</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Developer API Response Preview Card -->
+          <div class="api-window-card" id="hero-api-preview">
+            <div class="window-header">
+              <div class="window-controls">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="window-label">POST /api/v1/fitness/calories</span>
+              <span style="font-size: 0.72rem; color: #64748b;">curl preview</span>
+            </div>
+            <div class="window-body">
+              <div class="req-endpoint">
+                <span class="method-tag method-post">POST</span>
+                <span class="endpoint-path">/api/v1/fitness/calories</span>
+              </div>
+              <div class="code-snippet"><span class="code-punct">{</span>
+  <span class="code-key">"age"</span><span class="code-punct">:</span> <span class="code-num">21</span><span class="code-punct">,</span>
+  <span class="code-key">"height"</span><span class="code-punct">:</span> <span class="code-num">180</span><span class="code-punct">,</span>
+  <span class="code-key">"weight"</span><span class="code-punct">:</span> <span class="code-num">70</span><span class="code-punct">,</span>
+  <span class="code-key">"activity"</span><span class="code-punct">:</span> <span class="code-str">"moderate"</span>
+<span class="code-punct">}</span></div>
+
+              <div class="status-response-bar">
+                <span>&#10003; 200 OK</span>
+                <span class="response-time">18ms response</span>
+              </div>
+
+              <div class="code-snippet"><span class="code-punct">{</span>
+  <span class="code-key">"bmr"</span><span class="code-punct">:</span> <span class="code-num">1745</span><span class="code-punct">,</span>
+  <span class="code-key">"dailyCalories"</span><span class="code-punct">:</span> <span class="code-num">2705</span>
+<span class="code-punct">}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Metrics Overview -->
+  <section class="metrics-section" id="metrics">
+    <div class="container">
+      <div class="metrics-grid">
+        <!-- BMI Card -->
+        <div class="metric-card" id="card-metric-bmi">
+          <div class="metric-header">
+            <span class="metric-label">BMI</span>
+            <span class="metric-tag tag-healthy">Optimal</span>
+          </div>
+          <div class="metric-value">21.6</div>
+          <div class="metric-subtext">Normal</div>
+        </div>
+
+        <!-- BMR Card -->
+        <div class="metric-card" id="card-metric-bmr">
+          <div class="metric-header">
+            <span class="metric-label">BMR</span>
+            <span class="metric-tag">Resting</span>
+          </div>
+          <div class="metric-value">1,745 kcal</div>
+          <div class="metric-subtext">Daily baseline</div>
+        </div>
+
+        <!-- Daily Calories Card -->
+        <div class="metric-card" id="card-metric-calories">
+          <div class="metric-header">
+            <span class="metric-label">Daily Calories</span>
+            <span class="metric-tag">TDEE</span>
+          </div>
+          <div class="metric-value">2,705 kcal</div>
+          <div class="metric-subtext">Moderate activity</div>
+        </div>
+
+        <!-- Protein Target Card -->
+        <div class="metric-card" id="card-metric-protein">
+          <div class="metric-header">
+            <span class="metric-label">Protein Target</span>
+            <span class="metric-tag">2.0g/kg</span>
+          </div>
+          <div class="metric-value">140 g</div>
+          <div class="metric-subtext">Daily target</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Fitness Calculator Section -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Interactive Preview</span>
+        <h2 class="section-title">Calculate your fitness metrics</h2>
+        <p class="section-subtitle">Visual demonstration of calculation parameters consumed by the FitPulse analytics endpoints.</p>
+      </div>
+
+      <div class="calculator-layout">
+        <!-- Calculator Form -->
+        <div class="calculator-card" id="calculator-form-container">
+          <h3 class="card-title">User Parameters</h3>
+          <p class="card-desc">Enter demographic and physiological specifications</p>
+
+          <form action="#" onsubmit="return false;" id="fitness-calc-form">
+            <div class="form-grid">
+              <!-- Age -->
+              <div class="form-group">
+                <label for="input-age" class="form-label">Age</label>
+                <div class="input-wrapper">
+                  <input type="number" id="input-age" class="form-input input-with-unit" value="21" min="10" max="120" placeholder="21">
+                  <span class="input-unit">yrs</span>
+                </div>
+              </div>
+
+              <!-- Gender -->
+              <div class="form-group">
+                <label for="select-gender" class="form-label">Gender</label>
+                <select id="select-gender" class="form-select">
+                  <option value="male" selected>Male</option>
+                  <option value="female">Female</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <!-- Height -->
+              <div class="form-group">
+                <label for="input-height" class="form-label">Height</label>
+                <div class="input-wrapper">
+                  <input type="number" id="input-height" class="form-input input-with-unit" value="180" min="50" max="260" placeholder="180">
+                  <span class="input-unit">cm</span>
+                </div>
+              </div>
+
+              <!-- Weight -->
+              <div class="form-group">
+                <label for="input-weight" class="form-label">Weight</label>
+                <div class="input-wrapper">
+                  <input type="number" id="input-weight" class="form-input input-with-unit" value="70" min="20" max="300" placeholder="70">
+                  <span class="input-unit">kg</span>
+                </div>
+              </div>
+
+              <!-- Activity Level -->
+              <div class="form-group full-width">
+                <label class="form-label">Activity Level</label>
+                <div class="segmented-chips" id="activity-chips">
+                  <label class="chip-label">
+                    <input type="radio" name="activity" value="sedentary">
+                    <span class="chip-box">Sedentary</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="radio" name="activity" value="light">
+                    <span class="chip-box">Light</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="radio" name="activity" value="moderate" checked>
+                    <span class="chip-box">Moderate</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="radio" name="activity" value="active">
+                    <span class="chip-box">Active</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="radio" name="activity" value="very-active">
+                    <span class="chip-box">Very Active</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Fitness Goal -->
+              <div class="form-group full-width">
+                <label class="form-label">Fitness Goal</label>
+                <div class="segmented-chips" id="goal-chips">
+                  <label class="chip-label">
+                    <input type="radio" name="goal" value="lose-weight">
+                    <span class="chip-box">Lose Weight</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="radio" name="goal" value="maintain" checked>
+                    <span class="chip-box">Maintain</span>
+                  </label>
+                  <label class="chip-label">
+                    <input type="radio" name="goal" value="gain-weight">
+                    <span class="chip-box">Gain Weight</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="calculator-actions">
+              <button type="button" class="btn btn-primary btn-full" id="btn-calculate-metrics">Calculate Metrics</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Static Results Dashboard -->
+        <div class="results-card" id="calculator-results-dashboard">
+          <div class="results-header">
+            <div>
+              <h3 class="card-title">Computed Metrics</h3>
+              <p style="font-size: 0.8125rem; color: var(--text-muted); margin: 0;">Harris-Benedict & Mifflin-St Jeor models</p>
+            </div>
+            <span class="demo-badge">Demonstration Data</span>
+          </div>
+
+          <div class="results-metric-primary">
+            <div class="result-card-inner">
+              <div class="result-micro-label">Body Mass Index (BMI)</div>
+              <div class="result-highlight-num">21.6</div>
+              <div class="result-highlight-status">Normal weight range</div>
+            </div>
+            <div class="result-card-inner">
+              <div class="result-micro-label">Basal Metabolic Rate (BMR)</div>
+              <div class="result-highlight-num">1,745</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">kcal/day baseline</div>
+            </div>
+          </div>
+
+          <div class="result-total-calories-banner">
+            <div class="calorie-label-group">
+              <span class="banner-title">Daily Calorie Target (TDEE)</span>
+              <span class="banner-subtitle">Maintenance energy based on moderate activity</span>
+            </div>
+            <span class="banner-value">2,705 <span style="font-size: 1rem; font-weight: 500;">kcal</span></span>
+          </div>
+
+          <div class="macros-breakdown-panel">
+            <h4 class="macros-title">Target Macronutrient Distribution</h4>
+            <div class="macros-list">
+              <div class="macro-item">
+                <div class="macro-row-info">
+                  <span class="macro-name">Protein (25%)</span>
+                  <span class="macro-amount">140 g</span>
+                </div>
+                <div class="macro-bar-track">
+                  <div class="macro-bar-fill fill-protein"></div>
+                </div>
+              </div>
+
+              <div class="macro-item">
+                <div class="macro-row-info">
+                  <span class="macro-name">Carbohydrates (50%)</span>
+                  <span class="macro-amount">338 g</span>
+                </div>
+                <div class="macro-bar-track">
+                  <div class="macro-bar-fill fill-carbs"></div>
+                </div>
+              </div>
+
+              <div class="macro-item">
+                <div class="macro-row-info">
+                  <span class="macro-name">Fat (25%)</span>
+                  <span class="macro-amount">75 g</span>
+                </div>
+                <div class="macro-bar-track">
+                  <div class="macro-bar-fill fill-fat"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="results-footer-notice">
+            * Static preview calculated for mock demographic baseline. Connect backend endpoints for dynamic live evaluations.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. API Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">REST API Microservices</span>
+        <h2 class="section-title">One API. Multiple fitness services.</h2>
+        <p class="section-subtitle">
+          Engineered for developer productivity. High-performance endpoints returning standardized, validated JSON payloads.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1: BMI Calculator -->
+        <div class="service-card" id="service-bmi">
+          <div class="service-top">
+            <div class="service-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 12h8"></path>
+                <path d="M12 8v8"></path>
+              </svg>
+            </div>
+            <div class="service-title-wrap">
+              <h3 class="service-title">BMI Calculator</h3>
+              <p class="service-desc">Calculate BMI and return the corresponding category.</p>
+            </div>
+          </div>
+          <div class="endpoint-display-box">
+            <span class="method-badge-clean">POST</span>
+            <span class="endpoint-text">/api/v1/fitness/bmi</span>
+          </div>
+          <div class="service-footer">
+            <a href="#playground" class="btn btn-outline-emerald">View API &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Service 2: BMR Calculator -->
+        <div class="service-card" id="service-bmr">
+          <div class="service-top">
+            <div class="service-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="service-title-wrap">
+              <h3 class="service-title">BMR Calculator</h3>
+              <p class="service-desc">Calculate basal metabolic rate.</p>
+            </div>
+          </div>
+          <div class="endpoint-display-box">
+            <span class="method-badge-clean">POST</span>
+            <span class="endpoint-text">/api/v1/fitness/bmr</span>
+          </div>
+          <div class="service-footer">
+            <a href="#playground" class="btn btn-outline-emerald">View API &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Service 3: Calorie Calculator -->
+        <div class="service-card" id="service-calories">
+          <div class="service-top">
+            <div class="service-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"></path>
+              </svg>
+            </div>
+            <div class="service-title-wrap">
+              <h3 class="service-title">Calorie Calculator</h3>
+              <p class="service-desc">Estimate daily calorie requirements based on activity level.</p>
+            </div>
+          </div>
+          <div class="endpoint-display-box">
+            <span class="method-badge-clean">POST</span>
+            <span class="endpoint-text">/api/v1/fitness/calories</span>
+          </div>
+          <div class="service-footer">
+            <a href="#playground" class="btn btn-outline-emerald">View API &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Service 4: Macro Calculator -->
+        <div class="service-card" id="service-macros">
+          <div class="service-top">
+            <div class="service-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+              </svg>
+            </div>
+            <div class="service-title-wrap">
+              <h3 class="service-title">Macro Calculator</h3>
+              <p class="service-desc">Generate personalized macronutrient targets.</p>
+            </div>
+          </div>
+          <div class="endpoint-display-box">
+            <span class="method-badge-clean">POST</span>
+            <span class="endpoint-text">/api/v1/fitness/macros</span>
+          </div>
+          <div class="service-footer">
+            <a href="#playground" class="btn btn-outline-emerald">View API &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. API Playground Section -->
+  <section class="playground-section" id="playground">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Interactive Sandbox</span>
+        <h2 class="section-title">Test the FitPulse API</h2>
+        <p class="section-subtitle">Simulate incoming JSON requests and evaluate structured response payloads in real-time.</p>
+      </div>
+
+      <div class="playground-console" id="playground-console">
+        <!-- Request Pane -->
+        <div class="console-pane pane-request">
+          <div class="console-pane-header">
+            <span class="pane-label">Request Payload</span>
+            <span style="font-size: 0.72rem; color: #64748b; font-family: var(--font-mono);">application/json</span>
+          </div>
+
+          <div class="playground-bar">
+            <span class="playground-method-badge">POST</span>
+            <select class="playground-endpoint-selector" id="endpoint-selector">
+              <option value="/api/v1/fitness/calories" selected>/api/v1/fitness/calories</option>
+              <option value="/api/v1/fitness/bmi">/api/v1/fitness/bmi</option>
+              <option value="/api/v1/fitness/bmr">/api/v1/fitness/bmr</option>
+              <option value="/api/v1/fitness/macros">/api/v1/fitness/macros</option>
+            </select>
+          </div>
+
+          <div class="console-editor-area"><span class="code-punct">{</span>
+  <span class="code-key">"age"</span><span class="code-punct">:</span> <span class="code-num">21</span><span class="code-punct">,</span>
+  <span class="code-key">"gender"</span><span class="code-punct">:</span> <span class="code-str">"male"</span><span class="code-punct">,</span>
+  <span class="code-key">"height"</span><span class="code-punct">:</span> <span class="code-num">180</span><span class="code-punct">,</span>
+  <span class="code-key">"weight"</span><span class="code-punct">:</span> <span class="code-num">70</span><span class="code-punct">,</span>
+  <span class="code-key">"activityLevel"</span><span class="code-punct">:</span> <span class="code-str">"moderate"</span>
+<span class="code-punct">}</span></div>
+
+          <div class="console-actions-bar">
+            <button type="button" class="btn-send-request" id="btn-send-request">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              Send Request
+            </button>
+          </div>
+        </div>
+
+        <!-- Response Pane -->
+        <div class="console-pane pane-response">
+          <div class="console-pane-header">
+            <span class="pane-label">Response Panel</span>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span class="response-time-info">time: 14ms</span>
+              <div class="response-status-badge">
+                <span>200 OK</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="console-editor-area" style="background-color: #0b1120;"><span class="code-punct">{</span>
+  <span class="code-key">"success"</span><span class="code-punct">:</span> <span class="code-bool">true</span><span class="code-punct">,</span>
+  <span class="code-key">"timestamp"</span><span class="code-punct">:</span> <span class="code-str">"2026-10-08T09:03:14Z"</span><span class="code-punct">,</span>
+  <span class="code-key">"data"</span><span class="code-punct">:</span> <span class="code-punct">{</span>
+    <span class="code-key">"bmr"</span><span class="code-punct">:</span> <span class="code-num">1745</span><span class="code-punct">,</span>
+    <span class="code-key">"dailyCalories"</span><span class="code-punct">:</span> <span class="code-num">2705</span><span class="code-punct">,</span>
+    <span class="code-key">"metrics"</span><span class="code-punct">:</span> <span class="code-punct">{</span>
+      <span class="code-key">"activityMultiplier"</span><span class="code-punct">:</span> <span class="code-num">1.55</span><span class="code-punct">,</span>
+      <span class="code-key">"unitSystem"</span><span class="code-punct">:</span> <span class="code-str">"metric"</span>
+    <span class="code-punct">}</span>
+  <span class="code-punct">}</span>
+<span class="code-punct">}</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo-group">
+            <div class="logo-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </div>
+            <span>Fit<span class="logo-pulse-text">Pulse</span></span>
+          </div>
+          <p>FitPulse provides high-precision fitness calculation microservices for health tech developers, student engineers, and digital fitness apps.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <div class="footer-links">
+            <a href="#services">BMI Endpoint</a>
+            <a href="#services">BMR Endpoint</a>
+            <a href="#services">Calorie Engine</a>
+            <a href="#services">Macro Calculator</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Developers</h4>
+          <div class="footer-links">
+            <a href="#playground">API Playground</a>
+            <a href="#">OpenAPI Spec (JSON)</a>
+            <a href="#">FastAPI Docs</a>
+            <a href="#">Integration Guide</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Project</h4>
+          <div class="footer-links">
+            <a href="#">Architecture Overview</a>
+            <a href="#">GitHub Repository</a>
+            <a href="#">Changelog</a>
+            <a href="#">License (MIT)</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 FitPulse API. Designed for developer integration.</div>
+        <div>HTML &amp; CSS Frontend Architecture. Pure static build.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1050 @@
+:root {
+  /* Saaspo Authentic Dark SaaS Palette */
+  --bg-outer: #07080c;
+  --bg-frame: #0b0d12;
+  --bg-card: #10131a;
+  --bg-card-elevated: #141821;
+  --bg-browser-bar: #131720;
+  --bg-url-pill: #0b0e14;
+  --bg-pill: #131720;
+  --bg-pill-hover: #1b212d;
+  --bg-badge: #1e2430;
+
+  --border-frame: #1e232d;
+  --border-subtle: #181c24;
+  --border-pill: #222834;
+  --border-hover: #333c4d;
+
+  --text-heading: #e8f1ff;
+  --text-white: #ffffff;
+  --text-body: #8b95a5;
+  --text-muted: #5e6775;
+
+  --mint-primary: #5ce68b;
+  --mint-hover: #4cd97c;
+  --mint-glow: rgba(92, 230, 139, 0.16);
+  --mint-dark-ink: #06130b;
+
+  --yellow-accent: #d9f99d;
+  --amber-accent: #fbbf24;
+
+  --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-outer);
+  color: var(--text-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse 70% 35% at 50% 0%, rgba(56, 70, 110, 0.18), transparent 70%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-outer);
+}
+::-webkit-scrollbar-thumb {
+  background: #1f2532;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mint-primary);
+}
+
+/* ==========================================================================
+   1. SAASPO TOP AMBIENT HEADER & FRAMED APP SHELL
+   ========================================================================== */
+.top-showcase-crown {
+  text-align: center;
+  padding: 28px 20px 24px;
+}
+
+.crown-title {
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  line-height: 1.1;
+}
+
+.crown-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+/* Framed Main SaaS Shell (Matches the rounded dark frame in the screenshot) */
+.saaspo-shell {
+  max-width: 1360px;
+  margin: 0 auto 64px;
+  background-color: var(--bg-frame);
+  border: 3px solid #1c2029;
+  border-radius: 24px;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  position: relative;
+  /* Subtle architectural grid lines on right side like Saaspo */
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.shell-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ==========================================================================
+   2. SAASPO NAVBAR
+   ========================================================================== */
+.saaspo-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 13, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  height: 76px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.saaspo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: var(--text-white);
+}
+
+.brand-rect-icon {
+  width: 24px;
+  height: 30px;
+  border: 2px solid var(--text-white);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.brand-rect-inner {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--text-white);
+  border-radius: 1.5px;
+}
+
+.brand-wordmark {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+}
+
+.brand-reg-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--mint-primary);
+  background: rgba(92, 230, 139, 0.1);
+  border: 1px solid rgba(92, 230, 139, 0.25);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+.nav-center-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #c3ccd9;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.18s ease;
+  position: relative;
+}
+
+.nav-item:hover {
+  color: var(--text-white);
+}
+
+.nav-chevron {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.nav-new-badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: var(--mint-primary);
+  letter-spacing: 0.04em;
+  position: relative;
+  top: -8px;
+  margin-left: 1px;
+}
+
+.nav-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-subtle-link {
+  text-decoration: none;
+  color: #c3ccd9;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+
+.nav-subtle-link:hover {
+  color: var(--text-white);
+}
+
+.btn-mint-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: var(--mint-primary);
+  color: var(--mint-dark-ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-mint-pill:hover {
+  background: var(--mint-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(92, 230, 139, 0.28);
+}
+
+/* ==========================================================================
+   3. SAASPO HERO SECTION (2-COLUMN SPLIT + SUBSCRIBE-STYLE ACTION BOX)
+   ========================================================================== */
+.saaspo-hero {
+  padding: 64px 0 46px;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1.32fr 0.68fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-giant-title {
+  font-size: clamp(2.65rem, 4.7vw, 4.1rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--text-heading);
+  margin-bottom: 24px;
+}
+
+.hero-lead-copy {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  max-width: 630px;
+}
+
+.mint-highlight {
+  color: var(--mint-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Right Saaspo Action Box */
+.saaspo-cta-card {
+  background: rgba(16, 19, 26, 0.92);
+  border: 1px solid var(--border-frame);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.cta-card-heading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-white);
+  margin-bottom: 6px;
+}
+
+.cta-card-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* Connected White Input + Mint Button Group (Exact Saaspo Widget) */
+.connected-action-bar {
+  display: flex;
+  align-items: stretch;
+  height: 46px;
+  border-radius: 7px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.connected-input {
+  flex: 1;
+  background: #ffffff;
+  color: #0f172a;
+  border: none;
+  padding: 0 14px;
+  font-size: 0.86rem;
+  font-family: var(--font-sans);
+  outline: none;
+  min-width: 0;
+}
+
+.connected-input::placeholder {
+  color: #64748b;
+}
+
+.connected-submit-btn {
+  background: var(--mint-primary);
+  color: var(--mint-dark-ink);
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 0 20px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s;
+}
+
+.connected-submit-btn:hover {
+  background: var(--mint-hover);
+}
+
+.cta-card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--text-body);
+  padding-top: 8px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   4. SIGNATURE SAASPO FILTER BAR (// Pages & // Writeup)
+   ========================================================================== */
+.filter-strip-wrap {
+  padding: 14px 0 34px;
+}
+
+.filter-strip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.filter-prefix {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-right: 6px;
+  white-space: nowrap;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-pill);
+  border: 1px solid var(--border-pill);
+  color: #b4becc;
+  font-size: 0.84rem;
+  font-weight: 500;
+  padding: 7px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  font-family: var(--font-sans);
+}
+
+.filter-pill:hover,
+.filter-pill.active {
+  background: var(--bg-pill-hover);
+  border-color: var(--mint-primary);
+  color: var(--text-white);
+}
+
+.filter-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--bg-badge);
+  color: #8b95a5;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.filter-pill.active .filter-count {
+  background: rgba(92, 230, 139, 0.2);
+  color: var(--mint-primary);
+}
+
+/* ==========================================================================
+   5. SAASPO 3-COLUMN BROWSER WINDOW GALLERY CARDS
+   ========================================================================== */
+.browser-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.browser-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-frame);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.24s ease;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4);
+}
+
+.browser-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-hover);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.65);
+}
+
+/* Top Browser Chrome Header */
+.browser-chrome {
+  background: var(--bg-browser-bar);
+  border-bottom: 1px solid var(--border-frame);
+  height: 44px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.chrome-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chrome-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2c3342;
+}
+
+.chrome-url-box {
+  flex: 1;
+  max-width: 240px;
+  background: var(--bg-url-pill);
+  border: 1px solid #1d222c;
+  border-radius: 6px;
+  padding: 4px 12px;
+  text-align: center;
+  font-size: 0.76rem;
+  color: #c3ccd9;
+  font-family: var(--font-sans);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chrome-ext-link {
+  color: #5e6775;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.18s;
+}
+
+.chrome-ext-link:hover {
+  color: var(--mint-primary);
+}
+
+/* Inside Browser Viewport */
+.browser-viewport {
+  padding: 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 290px;
+  position: relative;
+}
+
+/* Theme 1: Dark SaaS Viewport (like streamwork.com in screenshot) */
+.viewport-dark {
+  background: radial-gradient(circle at 50% 0%, rgba(92, 230, 139, 0.08), transparent 65%), #0c0e13;
+  color: var(--text-white);
+  text-align: center;
+}
+
+/* Theme 2: Crisp White SaaS Viewport (like localcan.com in screenshot) */
+.viewport-light {
+  background: #ffffff;
+  color: #0f172a;
+  text-align: center;
+}
+
+/* Theme 3: Split Feature Viewport (like careerpuck.com in screenshot) */
+.viewport-split {
+  background: #f8fafc;
+  color: #0f172a;
+  text-align: left;
+}
+
+.vp-mini-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  opacity: 0.75;
+  margin-bottom: 22px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.vp-pill-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+  margin-bottom: 12px;
+}
+
+.tag-lime {
+  background: #ecfccb;
+  color: #365314;
+}
+
+.tag-dark-mint {
+  background: rgba(92, 230, 139, 0.15);
+  color: var(--mint-primary);
+  border: 1px solid rgba(92, 230, 139, 0.3);
+}
+
+.tag-amber {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.vp-headline-dark {
+  font-size: 1.32rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.vp-headline-dark .lime-text {
+  color: #bef264;
+}
+
+.vp-headline-light {
+  font-size: 1.32rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.vp-subtext-dark {
+  font-size: 0.78rem;
+  color: #8b95a5;
+  margin-bottom: 18px;
+}
+
+.vp-subtext-light {
+  font-size: 0.78rem;
+  color: #475569;
+  margin-bottom: 18px;
+}
+
+.vp-cta-lime {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #d9f99d;
+  color: #1a2e05;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.vp-cta-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 99px;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.vp-cta-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f59e0b;
+  color: #ffffff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.vp-feature-box {
+  background: #e0f2fe;
+  border: 1px solid #bae6fd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #0369a1;
+}
+
+/* ==========================================================================
+   6. INTERACTIVE PYTHON WORKBENCH (SEMESTER LEARNING SHOWCASE)
+   ========================================================================== */
+.section-divider {
+  border-top: 1px solid var(--border-frame);
+  padding: 56px 0;
+}
+
+.section-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.section-tag-mono {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--mint-primary);
+  margin-bottom: 6px;
+}
+
+.section-h2 {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-heading);
+}
+
+.code-browser-window {
+  background: #0c0f15;
+  border: 1px solid var(--border-frame);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.code-window-bar {
+  background: var(--bg-browser-bar);
+  border-bottom: 1px solid var(--border-frame);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.code-tab-group {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.code-pill-tab {
+  background: var(--bg-url-pill);
+  border: 1px solid var(--border-pill);
+  color: var(--text-body);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.code-pill-tab:hover,
+.code-pill-tab.active {
+  border-color: var(--mint-primary);
+  color: var(--text-white);
+  background: rgba(92, 230, 139, 0.1);
+}
+
+.code-pane {
+  display: none;
+  padding: 24px 28px;
+  overflow-x: auto;
+}
+
+.code-pane.active {
+  display: block;
+}
+
+.code-pane pre {
+  font-family: var(--font-mono);
+  font-size: 0.83rem;
+  line-height: 1.7;
+  color: #d8e4f5;
+}
+
+/* ==========================================================================
+   7. COMPLETE 10-SECTION PROJECT WRITEUP (SAASPO CARDS + SIDEBAR)
+   ========================================================================== */
+.writeup-grid-layout {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.writeup-sidebar {
+  position: sticky;
+  top: 94px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-frame);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.sidebar-heading {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mint-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.sidebar-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.83rem;
+  color: var(--text-body);
+  transition: all 0.18s;
+}
+
+.sidebar-nav-link:hover,
+.sidebar-nav-link.active {
+  background: var(--bg-pill-hover);
+  color: var(--text-white);
+}
+
+.sidebar-nav-link.active .sidebar-count {
+  background: rgba(92, 230, 139, 0.2);
+  color: var(--mint-primary);
+}
+
+.sidebar-count {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  background: var(--bg-badge);
+  color: var(--text-muted);
+  padding: 2px 7px;
+  border-radius: 99px;
+}
+
+.writeup-cards-column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.writeup-BrowserCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-frame);
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-margin-top: 96px;
+}
+
+.writeup-card-body {
+  padding: 28px 32px;
+}
+
+.writeup-card-body h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.writeup-card-body h4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--mint-primary);
+  margin: 20px 0 8px;
+}
+
+.writeup-card-body p {
+  font-size: 0.94rem;
+  color: #b4becc;
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.writeup-card-body ul,
+.writeup-card-body ol {
+  padding-left: 22px;
+  color: #b4becc;
+  font-size: 0.93rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.writeup-card-body li strong {
+  color: var(--text-white);
+}
+
+.writeup-card-body code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: #171c26;
+  border: 1px solid #232a38;
+  color: var(--mint-primary);
+  padding: 2px 6px;
+  border-radius: 5px;
+}
+
+.ascii-diagram-box {
+  background: #080a0e;
+  border: 1px solid var(--border-frame);
+  border-radius: 8px;
+  padding: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--mint-primary);
+  overflow-x: auto;
+  line-height: 1.6;
+  margin: 14px 0;
+}
+
+.two-col-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 14px 0;
+}
+
+.service-subcard {
+  background: #0c0f15;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.service-subcard h4 {
+  margin-top: 0;
+}
+
+/* Dark SaaS Tables */
+.saas-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-frame);
+  border-radius: 8px;
+  margin: 14px 0;
+}
+
+.saas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+  text-align: left;
+}
+
+.saas-table th {
+  background: var(--bg-browser-bar);
+  color: var(--text-white);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-frame);
+}
+
+.saas-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: #b4becc;
+}
+
+.saas-table tr:last-child td {
+  border-bottom: none;
+}
+
+.prompt-pill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.prompt-pill-item {
+  background: #0c0f15;
+  border: 1px solid var(--border-frame);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-heading);
+}
+
+.prompt-pill-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: rgba(92, 230, 139, 0.14);
+  color: var(--mint-primary);
+  padding: 2px 8px;
+  border-radius: 99px;
+  flex-shrink: 0;
+}
+
+/* Footer */
+.saaspo-footer {
+  border-top: 1px solid var(--border-frame);
+  padding: 36px 0;
+  margin-top: 20px;
+}
+
+.footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .hero-split,
+  .writeup-grid-layout {
+    grid-template-columns: 1fr;
+  }
+  .browser-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .writeup-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-center-links {
+    display: none;
+  }
+  .browser-gallery-grid,
+  .two-col-services {
+    grid-template-columns: 1fr;
+  }
+  .shell-container,
+  .nav-inner {
+    padding: 0 20px;
+  }
+}

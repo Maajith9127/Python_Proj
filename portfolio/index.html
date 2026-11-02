@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Advanced Python Programming Portfolio — Abdul Maajith (23MIC0052). Curated SaaS showcase of FitPulse & FitMetrics, Semester Python Engineering, Demo Video, PPT, and 10-Section Write-Up." />
+  <title>Abdul Maajith (23MIC0052) — Advanced Python Programming Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Top Ambient Crown Header (Matches Saaspo Top Header) -->
+  <div class="top-showcase-crown">
+    <div class="crown-title">Abdul Maajith</div>
+    <div class="crown-subtitle">23MIC0052 • Advanced Python Programming Portfolio</div>
+  </div>
+
+  <!-- Main Framed Saaspo App Shell -->
+  <div class="saaspo-shell">
+
+    <!-- 1. Saaspo Minimalist Navbar -->
+    <header class="saaspo-nav">
+      <div class="nav-inner">
+        <a href="#top" class="saaspo-brand">
+          <div class="brand-rect-icon">
+            <div class="brand-rect-inner"></div>
+          </div>
+          <span class="brand-wordmark">fitpulse</span>
+          <span class="brand-reg-tag">23MIC0052</span>
+        </a>
+
+        <nav class="nav-center-links">
+          <a href="#gallery" class="nav-item">
+            <span>Deliverables</span>
+            <span class="nav-chevron">⌄</span>
+          </a>
+          <a href="#sec-5" class="nav-item">
+            <span>Stack</span>
+            <span class="nav-chevron">⌄</span>
+          </a>
+          <a href="#python-workbench" class="nav-item">
+            <span>Python Lab</span>
+            <span class="nav-new-badge">NEW</span>
+          </a>
+          <a href="#writeup-section" class="nav-item">
+            <span>10-Point Writeup</span>
+            <span class="nav-chevron">⌄</span>
+          </a>
+        </nav>
+
+        <div class="nav-right-actions">
+          <a href="mailto:sharmilabanu.k@vit.ac.in" class="nav-subtle-link" title="Submit to Prof. Sharmila Banu K">
+            sharmilabanu.k@vit.ac.in
+          </a>
+          <a href="https://drive.google.com/drive/folders/192Q93fd3EKqDnYzhzgLjVK0Cgw5Fhee3?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-mint-pill">
+            Open Drive
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top" class="shell-container">
+
+      <!-- 2. Saaspo 2-Column Hero Section -->
+      <section class="saaspo-hero">
+        <div class="hero-split">
+          <!-- Left Column -->
+          <div>
+            <h1 class="hero-giant-title">
+              The Advanced Python Programming Portfolio
+            </h1>
+            <p class="hero-lead-copy">
+              A curated collection of semester Python engineering and the <strong>FitPulse &amp; FitMetrics</strong> partner REST API system by <strong>Abdul Maajith (23MIC0052)</strong>. Quickly inspect our demo video, PPT, and 10-section write-up with our <a href="#gallery" class="mint-highlight">deliverable</a> &amp; <a href="#writeup-section" class="mint-highlight">writeup</a> filters.
+            </p>
+          </div>
+
+          <!-- Right Column: Saaspo Subscribe-Style Action Box -->
+          <aside class="saaspo-cta-card">
+            <h2 class="cta-card-heading">
+              Access Project Writeup, PPT &amp; Demo Video
+            </h2>
+            <p class="cta-card-sub">
+              Submitted to Prof. Sharmila Banu K • Deadline: 02.11.2026
+            </p>
+
+            <div class="connected-action-bar">
+              <input
+                id="writeup-quick-search"
+                type="text"
+                class="connected-input"
+                placeholder="Filter writeup sections (e.g. Architecture, API)..."
+                aria-label="Filter writeup sections"
+              />
+              <a
+                href="https://drive.google.com/drive/folders/192Q93fd3EKqDnYzhzgLjVK0Cgw5Fhee3?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="connected-submit-btn"
+              >
+                Google Drive
+              </a>
+            </div>
+
+            <div class="cta-card-meta-row" style="gap: 8px; flex-wrap: wrap;">
+              <a href="https://drive.google.com/file/d/1KAt3AgmhTMgsV5BM_nq_22fc_CxBhr0z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="mint-highlight">▶ Demo Video ↗</a>
+              <a href="https://docs.google.com/presentation/d/1J4ulRUiGNSI8FBWNFJlbPnK9Ii4Ldlti/edit?usp=sharing&ouid=114368354150813655059&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="mint-highlight">📊 Project PPT ↗</a>
+              <span>23MIC0052 &amp; 23MIC0060</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 3. Signature Saaspo // Pages Filter Strip -->
+      <div id="gallery" class="filter-strip-wrap">
+        <div class="filter-strip">
+          <span class="filter-prefix">// Pages</span>
+          <button type="button" class="filter-pill active" data-gallery-filter="all">
+            <span>All Showcases</span>
+            <span class="filter-count">06</span>
+          </button>
+          <button type="button" class="filter-pill" data-gallery-filter="deliverables">
+            <span>Demo Video &amp; PPT</span>
+            <span class="filter-count">02</span>
+          </button>
+          <button type="button" class="filter-pill" data-gallery-filter="capstone">
+            <span>FitPulse &amp; FitMetrics</span>
+            <span class="filter-count">24</span>
+          </button>
+          <button type="button" class="filter-pill" data-gallery-filter="python">
+            <span>Semester Python Modules</span>
+            <span class="filter-count">06</span>
+          </button>
+          <a href="#sec-4" class="filter-pill">
+            <span>Architecture</span>
+            <span class="filter-count">04</span>
+          </a>
+          <a href="#sec-5" class="filter-pill">
+            <span>Tech Stack</span>
+            <span class="filter-count">11</span>
+          </a>
+          <a href="#sec-8" class="filter-pill">
+            <span>API Integration</span>
+            <span class="filter-count">15</span>
+          </a>
+          <a href="#sec-9" class="filter-pill">
+            <span>Inputs &amp; Outputs</span>
+            <span class="filter-count">09</span>
+          </a>
+          <a href="#sec-10" class="filter-pill">
+            <span>References</span>
+            <span class="filter-count">15</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Saaspo 3-Column Browser Window Gallery -->
+      <section class="browser-gallery-grid" aria-label="Portfolio Deliverables and Python Showcase">
+
+        <!-- Browser Card 1: Dark SaaS Theme (Project Demo Video) -->
+        <article class="browser-card" data-category="deliverables capstone">
+          <div class="browser-chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="chrome-url-box">drive.google.com/demo-video</div>
+            <a href="https://drive.google.com/file/d/1KAt3AgmhTMgsV5BM_nq_22fc_CxBhr0z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="chrome-ext-link" title="Open Demo Video">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="browser-viewport viewport-dark">
+            <div class="vp-mini-nav">
+              <span style="font-weight: 700; color: #fff;">fitpulse.video</span>
+              <span>24-Method Walkthrough • Swagger • PDF</span>
+            </div>
+            <div>
+              <span class="vp-pill-tag tag-dark-mint">DELIVERABLE 01 • DEMO VIDEO</span>
+              <h3 class="vp-headline-dark">
+                Watch how we <span class="lime-text">compute, sync and export</span> athlete metrics
+              </h3>
+              <p class="vp-subtext-dark">
+                Full screen-recorded demonstration of FitPulse &amp; FitMetrics running live with bidirectional REST API calls.
+              </p>
+            </div>
+            <div>
+              <a href="https://drive.google.com/file/d/1KAt3AgmhTMgsV5BM_nq_22fc_CxBhr0z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="vp-cta-lime">
+                ▶ Watch Project Demo Video ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Browser Card 2: Crisp White Theme (Project PPT Presentation) -->
+        <article class="browser-card" data-category="deliverables capstone">
+          <div class="browser-chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="chrome-url-box">docs.google.com/presentation-ppt</div>
+            <a href="https://docs.google.com/presentation/d/1J4ulRUiGNSI8FBWNFJlbPnK9Ii4Ldlti/edit?usp=sharing&ouid=114368354150813655059&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="chrome-ext-link" title="Open Project PPT">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="browser-viewport viewport-light">
+            <div class="vp-mini-nav">
+              <span style="font-weight: 800; color: #0f172a;">FitPulse Deck</span>
+              <span>Slides • Architecture • Formulas</span>
+            </div>
+            <div>
+              <span class="vp-pill-tag tag-lime">DELIVERABLE 02 • PROJECT PPT</span>
+              <h3 class="vp-headline-light">
+                Explore our Capstone Presentation Deck &amp; System Slides
+              </h3>
+              <p class="vp-subtext-light">
+                Covers Motivation, Existing Gap, USP, FastAPI Architecture, 24 Formula Models, and Partner Sync.
+              </p>
+            </div>
+            <div>
+              <a href="https://docs.google.com/presentation/d/1J4ulRUiGNSI8FBWNFJlbPnK9Ii4Ldlti/edit?usp=sharing&ouid=114368354150813655059&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="vp-cta-dark">
+                Open PPT Slide Deck ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Browser Card 3: Split Feature Theme (FitPulse & FitMetrics System) -->
+        <article class="browser-card" data-category="capstone">
+          <div class="browser-chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="chrome-url-box">fitpulse.api/v1/full-analysis</div>
+            <a href="#writeup-section" class="chrome-ext-link" title="Jump to Full Writeup">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+          <div class="browser-viewport viewport-split">
+            <div class="vp-mini-nav">
+              <span style="font-weight: 800; color: #0f172a;">FitPulse × FitMetrics</span>
+              <span>23MIC0052 • 23MIC0060</span>
+            </div>
+            <div>
+              <span class="vp-pill-tag tag-amber">CAPSTONE ARCHITECTURE</span>
+              <h3 class="vp-headline-light" style="font-size: 1.2rem;">
+                24-Method Athlete Engine &amp; Partner REST Handshake
+              </h3>
+              <div class="vp-feature-box">
+                POST /api/v1/fitness/full-analysis<br />
+                POST /api/v1/metrics/workout-analysis
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <a href="#writeup-section" class="vp-cta-amber">
+                Read 10-Section Writeup ↓
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Browser Card 4: Semester Python Learning — AsyncIO & HTTPX -->
+        <article class="browser-card" data-category="python">
+          <div class="browser-chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="chrome-url-box">python.sem/async-httpx-engine</div>
+            <a href="#python-workbench" class="chrome-ext-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </a>
+          </div>
+          <div class="browser-viewport viewport-dark" style="text-align: left;">
+            <div>
+              <span class="vp-pill-tag tag-dark-mint">SEMESTER PYTHON • MODULE 01</span>
+              <h3 class="vp-headline-dark" style="font-size: 1.2rem;">
+                Asynchronous I/O &amp; <span class="lime-text">httpx.AsyncClient</span> Orchestration
+              </h3>
+              <p class="vp-subtext-dark">
+                Mastered Python's <code>asyncio</code> event loop, non-blocking coroutines, and timeout-resilient microservice handshakes between FitPulse and FitMetrics.
+              </p>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mint-primary);">
+              async with httpx.AsyncClient() as client: ...
+            </div>
+          </div>
+        </article>
+
+        <!-- Browser Card 5: Semester Python Learning — Pydantic v2 & Sliding Window Security -->
+        <article class="browser-card" data-category="python">
+          <div class="browser-chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="chrome-url-box">python.sem/pydantic-rate-limiter</div>
+            <a href="#python-workbench" class="chrome-ext-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </a>
+          </div>
+          <div class="browser-viewport viewport-dark" style="text-align: left;">
+            <div>
+              <span class="vp-pill-tag tag-dark-mint">SEMESTER PYTHON • MODULE 02</span>
+              <h3 class="vp-headline-dark" style="font-size: 1.2rem;">
+                Pydantic v2 Schemas &amp; <span class="lime-text">Sliding-Window</span> Security
+              </h3>
+              <p class="vp-subtext-dark">
+                Implemented declarative type validation with <code>BaseModel</code>, SQLite API key storage, and an in-memory sliding-window request throttle for <code>X-API-Key</code> protection.
+              </p>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mint-primary);">
+              Depends(verify_api_key) • SQLite3 + Sliding Window
+            </div>
+          </div>
+        </article>
+
+        <!-- Browser Card 6: Semester Python Learning — ReportLab PDF Stream & Pytest -->
+        <article class="browser-card" data-category="python">
+          <div class="browser-chrome">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="chrome-url-box">python.sem/reportlab-pdf-pytest</div>
+            <a href="#python-workbench" class="chrome-ext-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </a>
+          </div>
+          <div class="browser-viewport viewport-dark" style="text-align: left;">
+            <div>
+              <span class="vp-pill-tag tag-dark-mint">SEMESTER PYTHON • MODULE 03</span>
+              <h3 class="vp-headline-dark" style="font-size: 1.2rem;">
+                Binary <span class="lime-text">io.BytesIO</span> PDF Streams &amp; Pytest Suites
+              </h3>
+              <p class="vp-subtext-dark">
+                Engineered on-the-fly vector PDF generation using ReportLab Platypus and verified all 24 physiological equations using <code>pytest</code> and FastAPI <code>TestClient</code>.
+              </p>
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--mint-primary);">
+              SimpleDocTemplate(io.BytesIO()) • Pytest Verified
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- 5. Interactive Python Code Workbench (Semester Code Highlights) -->
+      <section id="python-workbench" class="section-divider">
+        <div class="section-head-row">
+          <div>
+            <div class="section-tag-mono">// Semester Python Engineering Lab</div>
+            <h2 class="section-h2">Production Python Modules Built This Semester</h2>
+          </div>
+          <button type="button" id="copy-code-btn" class="filter-pill">
+            Copy Active Code
+          </button>
+        </div>
+
+        <div class="code-browser-window">
+          <div class="code-window-bar">
+            <div class="chrome-dots">
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+              <span class="chrome-dot"></span>
+            </div>
+            <div class="code-tab-group">
+              <button type="button" class="code-pill-tab active" data-pane="pane-1">clients/fitmetrics.py</button>
+              <button type="button" class="code-pill-tab" data-pane="pane-2">security.py</button>
+              <button type="button" class="code-pill-tab" data-pane="pane-3">schemas.py</button>
+              <button type="button" class="code-pill-tab" data-pane="pane-4">engine/training.py</button>
+              <button type="button" class="code-pill-tab" data-pane="pane-5">report.py</button>
+            </div>
+          </div>
+
+          <div id="pane-1" class="code-pane active">
+<pre><code># fitpulse/backend/app/clients/fitmetrics.py — Async Service-to-Service Integration
+import httpx
+from typing import Dict, Any
+from ..config import settings
+
+async def fetch_partner_workout_analysis(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """Dispatches workout telemetry from FitPulse to FitMetrics via async HTTPX."""
+    headers = {"X-API-Key": settings.FITMETRICS_API_KEY, "Content-Type": "application/json"}
+    url = f"{settings.FITMETRICS_BASE_URL.rstrip('/')}/api/v1/metrics/workout-analysis"
+
+    async with httpx.AsyncClient(timeout=settings.PARTNER_TIMEOUT_SECONDS) as client:
+        response = await client.post(url, json=payload, headers=headers)
+        response.raise_for_status()
+        body = response.json()
+        return body.get("data", body)</code></pre>
+          </div>
+
+          <div id="pane-2" class="code-pane">
+<pre><code># fitpulse/backend/app/security.py — In-Process Sliding-Window Rate Limiter &amp; API Key Guard
+import time
+from collections import defaultdict
+from fastapi import Header, HTTPException, status
+from .config import settings
+
+_request_log: dict[str, list[float]] = defaultdict(list)
+
+def verify_api_key(x_api_key: str = Header(..., alias="X-API-Key")) -> str:
+    now = time.time()
+    window_start = now - 60.0  # 60-second sliding window
+
+    if x_api_key not in settings.ALLOWED_KEYS and not is_key_in_db(x_api_key):
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid X-API-Key")
+
+    timestamps = [t for t in _request_log[x_api_key] if t > window_start]
+    if len(timestamps) >= settings.RATE_LIMIT_PER_MINUTE:
+        raise HTTPException(status_code=status.HTTP_429_TOO_MANY_REQUESTS, detail="Rate limit exceeded")
+
+    timestamps.append(now)
+    _request_log[x_api_key] = timestamps
+    return x_api_key</code></pre>
+          </div>
+
+          <div id="pane-3" class="code-pane">
+<pre><code># fitpulse/backend/app/schemas.py — Declarative Type Validation with Pydantic v2
+from pydantic import BaseModel, Field
+from typing import Literal, List, Optional
+
+class AthleteProfileInput(BaseModel):
+    athlete_name: str = Field(default="Abdul Maajith", min_length=2, max_length=80)
+    age: int = Field(..., ge=14, le=100, description="Athlete age in years")
+    gender: Literal["male", "female"] = Field(..., description="Biological sex for BMR equations")
+    height_cm: float = Field(..., gt=100.0, lt=250.0, description="Height in centimeters")
+    weight_kg: float = Field(..., gt=30.0, lt=250.0, description="Body weight in kilograms")
+    activity_level: Literal["sedentary", "light", "moderate", "active", "very_active"] = "moderate"
+    daily_loads: Optional[List[float]] = Field(default=None, description="28-day training load series")</code></pre>
+          </div>
+
+          <div id="pane-4" class="code-pane">
+<pre><code># fitpulse/backend/app/engine/training.py — Banister TRIMP &amp; Foster ACWR Engine
+import math
+from typing import List, Dict, Any
+
+def calculate_banister_trimp(duration_min: float, avg_hr: float, rest_hr: float, max_hr: float, gender: str) -> float:
+    hr_reserve_fraction = max(0.0, min(1.0, (avg_hr - rest_hr) / (max_hr - rest_hr)))
+    k_factor = 1.92 if gender.lower() == "male" else 1.67
+    trimp = duration_min * hr_reserve_fraction * 0.64 * math.exp(k_factor * hr_reserve_fraction)
+    return round(trimp, 2)
+
+def analyze_training_balance(daily_loads: List[float]) -> Dict[str, Any]:
+    acute_load = sum(daily_loads[-7:]) / 7.0
+    chronic_load = sum(daily_loads[-28:]) / 28.0
+    acwr = round(acute_load / chronic_load, 2) if chronic_load > 0 else 0.0
+    status = "Optimal (Sweet Spot)" if 0.8 <= acwr <= 1.3 else ("High Injury Risk" if acwr > 1.5 else "Undertraining")
+    return {"acuteLoad": round(acute_load, 1), "chronicLoad": round(chronic_load, 1), "acwr": acwr, "status": status}</code></pre>
+          </div>
+
+          <div id="pane-5" class="code-pane">
+<pre><code># fitpulse/backend/app/report.py — Dynamic In-Memory PDF Generation using ReportLab
+import io
+from reportlab.lib.pagesizes import A4
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+
+def build_fitness_pdf_bytes(athlete_name: str, summary_rows: list[list[str]]) -> bytes:
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=A4, title=f"FitPulse Report - {athlete_name}")
+    styles = getSampleStyleSheet()
+    story = [Paragraph(f"&lt;b&gt;FitPulse 24-Method Athlete Report&lt;/b&gt; — {athlete_name}", styles["Title"]), Spacer(1, 12)]
+    table = Table([["#", "Domain", "Method / Formula", "Result"]] + summary_rows, hAlign="LEFT")
+    table.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#10131a")),
+        ("TEXTCOLOR", (0, 0), (-1, 0), colors.whitesmoke),
+        ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
+    ]))
+    story.append(table)
+    doc.build(story)
+    return buffer.getvalue()</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. COMPLETE 10-SECTION PROJECT WRITEUP -->
+      <section id="writeup-section" class="section-divider">
+        <div class="section-head-row">
+          <div>
+            <div class="section-tag-mono">// Official Project Write-Up (Sections 01 – 10)</div>
+            <h2 class="section-h2">Project Write-Up: FitPulse and FitMetrics</h2>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="https://drive.google.com/file/d/1KAt3AgmhTMgsV5BM_nq_22fc_CxBhr0z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-mint-pill">
+              ▶ Watch Demo Video ↗
+            </a>
+            <a href="https://docs.google.com/presentation/d/1J4ulRUiGNSI8FBWNFJlbPnK9Ii4Ldlti/edit?usp=sharing&ouid=114368354150813655059&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="filter-pill">
+              📊 Open Project PPT ↗
+            </a>
+            <button onclick="window.print()" type="button" class="filter-pill">
+              Print / Export PDF
+            </button>
+          </div>
+        </div>
+
+        <div class="writeup-grid-layout">
+          <!-- Left Sticky Sidebar Index -->
+          <aside class="writeup-sidebar">
+            <div class="sidebar-heading">// 10 Rubric Sections</div>
+            <ul class="sidebar-nav-list">
+              <li><a href="#sec-1" class="sidebar-nav-link active"><span>1. Title</span><span class="sidebar-count">01</span></a></li>
+              <li><a href="#sec-2" class="sidebar-nav-link"><span>2. Motivation</span><span class="sidebar-count">02</span></a></li>
+              <li><a href="#sec-3" class="sidebar-nav-link"><span>3. Gap &amp; USP</span><span class="sidebar-count">03</span></a></li>
+              <li><a href="#sec-4" class="sidebar-nav-link"><span>4. Architecture</span><span class="sidebar-count">04</span></a></li>
+              <li><a href="#sec-5" class="sidebar-nav-link"><span>5. Tech Stack</span><span class="sidebar-count">05</span></a></li>
+              <li><a href="#sec-6" class="sidebar-nav-link"><span>6. Datasets Used</span><span class="sidebar-count">06</span></a></li>
+              <li><a href="#sec-7" class="sidebar-nav-link"><span>7. Prompts Used</span><span class="sidebar-count">07</span></a></li>
+              <li><a href="#sec-8" class="sidebar-nav-link"><span>8. API Integration</span><span class="sidebar-count">08</span></a></li>
+              <li><a href="#sec-9" class="sidebar-nav-link"><span>9. Users &amp; I/O</span><span class="sidebar-count">09</span></a></li>
+              <li><a href="#sec-10" class="sidebar-nav-link"><span>10. References</span><span class="sidebar-count">10</span></a></li>
+            </ul>
+          </aside>
+
+          <!-- Right Stream of 10 Browser-Framed Writeup Cards -->
+          <div class="writeup-cards-column">
+
+            <!-- Project Metadata Header Card -->
+            <div class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">project-metadata.json</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <p>
+                  <strong>Project type:</strong> Partner fitness analytics and REST API system<br />
+                  <strong>FitPulse developer:</strong> Abdul Maajith — <code>23MIC0052</code><br />
+                  <strong>FitMetrics developer:</strong> Yasash S — <code>23MIC0060</code><br />
+                  <strong>Status:</strong> Two independently deployable applications with service-to-service integration
+                </p>
+                <p style="margin-bottom: 0; font-size: 0.85rem; color: var(--text-muted);">
+                  Note: This report describes the implementation in the local repositories; it does not claim that either service is a medical device or that every estimate is clinically validated.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1. Title -->
+            <article id="sec-1" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">01 / title.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>1. Title</h3>
+                <p style="font-size: 1.15rem; font-weight: 700; color: #fff;">
+                  FitPulse and FitMetrics: A Partnered Fitness Analytics and Workout Tracking System
+                </p>
+                <p>
+                  FitPulse provides fitness calculations and a consolidated 24-method athlete report. FitMetrics analyzes individual workout sessions, training load, heart-rate intensity, recovery, and energy balance. The two services exchange data through authenticated HTTP APIs.
+                </p>
+              </div>
+            </article>
+
+            <!-- 2. Motivation -->
+            <article id="sec-2" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">02 / motivation.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>2. Motivation</h3>
+                <p>
+                  Fitness information is often split between workout logs, calorie calculators, heart-rate tools, and strength trackers. This project brings several commonly used estimates into accessible web interfaces and REST APIs. An athlete can enter measurements and session details once, see the resulting estimates, and download a summary. The partner design also demonstrates how one service can request a calculation from another instead of duplicating it.
+                </p>
+                <p>
+                  The outputs are estimates based on the supplied inputs and the selected models. They are intended for educational and general fitness-information use, not diagnosis, treatment, or replacement of professional advice.
+                </p>
+              </div>
+            </article>
+
+            <!-- 3. Existing Gap / USP -->
+            <article id="sec-3" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">03 / gap-and-usp.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>3. Existing Gap / Event Motivating the Project and its USP</h3>
+                <h4>Gap</h4>
+                <p>
+                  A single workout-analysis tool may report calories or heart rate but not connect those results to longer-term training balance, recovery, body-composition estimates, or daily energy needs. Conversely, a collection of unrelated calculators can use inconsistent inputs and provide no API for other applications.
+                </p>
+                <h4>Project Response / USP</h4>
+                <ul>
+                  <li><strong>FitPulse:</strong> Combines 24 calculations/methods across metabolic, cardio, strength, training-load/recovery, and body-composition domains into a master analysis endpoint (<code>POST /api/v1/fitness/full-analysis</code>). Its website shows results with explanations, variable definitions, and worked examples, and can generate a PDF report.</li>
+                  <li><strong>FitMetrics:</strong> Focuses on workout-level analytics and training records, including MET-based calories, heart-rate zones, TRIMP, hydration, readiness, and training-balance metrics.</li>
+                  <li><strong>Partner Integration:</strong> FitMetrics obtains maintenance calories from FitPulse rather than implementing a separate BMR/TDEE calculation. FitPulse can request workout-analysis data from FitMetrics. Each application can also run locally with a partner stub for development/testing.</li>
+                </ul>
+                <p>
+                  The USP is the integration of two focused services through explicit API contracts, rather than a claim that the underlying formulas are novel.
+                </p>
+              </div>
+            </article>
+
+            <!-- 4. Architecture -->
+            <article id="sec-4" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">04 / system-architecture.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>4. Architecture</h3>
+                <h4>High-Level Design</h4>
+<pre class="ascii-diagram-box">Athlete / Browser
+      │
+      ├── FitPulse frontend ── FitPulse FastAPI ── calculation engines
+      │                             │
+      │                             └── calls FitMetrics workout endpoint
+      │
+      └── FitMetrics frontend ─ FitMetrics FastAPI ── workout/training engines
+                                    │
+                                    └── calls FitPulse calories endpoint</pre>
+                <p>
+                  Each repository is a separate FastAPI application with a static HTML/CSS frontend. The backend validates request bodies using Pydantic schemas, routes requests to domain calculation modules, and returns JSON responses. The API documentation is exposed through FastAPI/Swagger at <code>/docs</code> when the service is running.
+                </p>
+
+                <div class="two-col-services">
+                  <div class="service-subcard">
+                    <h4>FitPulse (Abdul Maajith — 23MIC0052)</h4>
+                    <ul>
+                      <li>FastAPI app: <code>backend/app/main.py</code></li>
+                      <li>API routers: <code>backend/app/routers/fitness.py</code> and <code>system.py</code></li>
+                      <li>Calculation modules: <code>backend/app/engine/metabolic.py</code>, <code>cardio.py</code>, <code>strength.py</code>, <code>training.py</code>, and <code>body.py</code></li>
+                      <li>PDF reporting: <code>backend/app/report.py</code></li>
+                      <li>Partner HTTP client: <code>backend/app/clients/fitmetrics.py</code></li>
+                      <li>Frontend: <code>frontend/index.html</code> and <code>frontend/style.css</code></li>
+                      <li>Local launcher: <code>run.py</code></li>
+                    </ul>
+                  </div>
+                  <div class="service-subcard">
+                    <h4>FitMetrics (Yasash S — 23MIC0060)</h4>
+                    <ul>
+                      <li>FastAPI app: <code>backend/app/main.py</code></li>
+                      <li>API routers: <code>backend/app/routers/metrics.py</code> and <code>system.py</code></li>
+                      <li>Calculation modules: <code>backend/app/engine/workout.py</code>, <code>cardio.py</code>, <code>training.py</code>, <code>strength.py</code>, and <code>body.py</code></li>
+                      <li>Partner HTTP client: <code>backend/app/clients/fitpulse.py</code></li>
+                      <li>Frontend: <code>frontend/index.html</code></li>
+                      <li>Local launcher: <code>run.py</code></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <h4>Service Integration and Data Flow</h4>
+                <ol>
+                  <li>FitMetrics sends athlete demographics/activity-level fields to FitPulse <code>POST /api/v1/fitness/calories</code> and uses the returned <code>dailyCalories</code> maintenance estimate in its energy-balance calculation.</li>
+                  <li>FitPulse sends workout details to FitMetrics <code>POST /api/v1/metrics/workout-analysis</code> in the partner-sync flow and can display the returned calorie burn, zone, and training-load information.</li>
+                  <li>Partner base URLs, timeouts, and optional keys are configured through environment variables. Local launchers can use a stub so the applications can be demonstrated without the partner deployment being available.</li>
+                </ol>
+              </div>
+            </article>
+
+            <!-- 5. Complete Tech Stack -->
+            <article id="sec-5" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">05 / tech-stack.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>5. Complete Tech Stack Info</h3>
+                <div class="saas-table-wrap">
+                  <table class="saas-table">
+                    <thead>
+                      <tr>
+                        <th>Area</th>
+                        <th>FitPulse</th>
+                        <th>FitMetrics</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>Language</strong></td><td>Python 3.8+ (project launcher checks version)</td><td>Python 3.8+ (project launcher checks version)</td></tr>
+                      <tr><td><strong>Backend Framework</strong></td><td>FastAPI</td><td>FastAPI</td></tr>
+                      <tr><td><strong>ASGI Server</strong></td><td>Uvicorn</td><td>Uvicorn</td></tr>
+                      <tr><td><strong>Request Validation</strong></td><td>Pydantic v2 schemas</td><td>Pydantic schemas</td></tr>
+                      <tr><td><strong>HTTP Integration</strong></td><td>HTTPX async client</td><td>HTTPX async client</td></tr>
+                      <tr><td><strong>Frontend</strong></td><td>HTML, CSS, browser JavaScript</td><td>HTML, CSS, browser JavaScript</td></tr>
+                      <tr><td><strong>API Documentation</strong></td><td>FastAPI OpenAPI / Swagger UI</td><td>FastAPI OpenAPI / Swagger UI</td></tr>
+                      <tr><td><strong>PDF Output</strong></td><td>ReportLab</td><td>ReportLab (where report endpoints are enabled)</td></tr>
+                      <tr><td><strong>Key Storage / Rate Limiting</strong></td><td>SQLite plus in-process sliding-window limiter</td><td>SQLite plus in-process sliding-window limiter</td></tr>
+                      <tr><td><strong>Tests</strong></td><td>pytest and FastAPI TestClient</td><td>pytest and FastAPI TestClient</td></tr>
+                      <tr><td><strong>Deployment Configuration</strong></td><td><code>render.yaml</code>; Vercel files in FitPulse checkout</td><td><code>render.yaml</code></td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p>
+                  The exact installed versions are taken from the repositories' requirements files and deployment build logs at submission time.
+                </p>
+              </div>
+            </article>
+
+            <!-- 6. Datasets Used -->
+            <article id="sec-6" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">06 / datasets-used.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>6. Datasets Used</h3>
+                <p>
+                  <strong>No external/downloaded athlete dataset is used by the implementation described here.</strong> The applications calculate outputs from values entered by the user or sent in an API request.
+                </p>
+                <p>Data sources at runtime are:</p>
+                <ul>
+                  <li>Athlete-provided values such as age, sex/gender selection, height, weight, circumference measurements, heart rates, activity, duration, distance, and lift/repetition values.</li>
+                  <li>A built-in MET/activity lookup table used to estimate exercise energy expenditure. It is a set of model constants/reference values in code, not a collected user dataset.</li>
+                  <li>A built-in sample 28-day daily training-load series used for the FitPulse demo/master analysis when a daily load series is not supplied.</li>
+                  <li>Standard equation constants and thresholds embedded in the calculation engines.</li>
+                  <li>Optional partner API responses from the other application.</li>
+                </ul>
+                <p>
+                  The project is not trained as a machine-learning model on a dataset; the calculation engines implement deterministic formula-based estimates.
+                </p>
+              </div>
+            </article>
+
+            <!-- 7. Prompts Used -->
+            <article id="sec-7" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">07 / prompts-used.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>7. List All the Prompts Used for Website Construction</h3>
+                <p>
+                  Summary of prompts used during development to structure formula explanations, variable definitions, and presentation clarity:
+                </p>
+                <div class="prompt-pill-list">
+                  <div class="prompt-pill-item">
+                    <span class="prompt-pill-badge">PROMPT 01</span>
+                    <span>“Explain what each of the 24 formulas does, with an example, and add explanations in the code/page so it is easy to present.”</span>
+                  </div>
+                  <div class="prompt-pill-item">
+                    <span class="prompt-pill-badge">PROMPT 02</span>
+                    <span>“Format the formula matrix so it is easy to read, in a good container with a small description under each item.”</span>
+                  </div>
+                  <div class="prompt-pill-item">
+                    <span class="prompt-pill-badge">PROMPT 03</span>
+                    <span>“Under each formula, add a small example so it is easy to explain during a presentation.”</span>
+                  </div>
+                  <div class="prompt-pill-item">
+                    <span class="prompt-pill-badge">PROMPT 04</span>
+                    <span>“Explain all variables under each formula, including what each variable represents.”</span>
+                  </div>
+                  <div class="prompt-pill-item">
+                    <span class="prompt-pill-badge">PROMPT 05</span>
+                    <span>“Prepare a project write-up for both FitPulse and FitMetrics covering the required report sections.”</span>
+                  </div>
+                </div>
+                <p>
+                  These prompts supported explanation and presentation improvements alongside manual implementation, testing, checking calculations, and validating API behavior.
+                </p>
+              </div>
+            </article>
+
+            <!-- 8. API Integration -->
+            <article id="sec-8" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">08 / api-integration.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>8. API Integration</h3>
+                <div class="two-col-services">
+                  <div class="service-subcard">
+                    <h4>FitPulse API (base path <code>/api/v1</code>)</h4>
+                    <ul>
+                      <li><code>POST /fitness/full-analysis</code> — master 24-method synthesis.</li>
+                      <li><code>POST /fitness/calories</code> — BMR/TDEE and goal-related energy profile; also used by FitMetrics.</li>
+                      <li><code>POST /fitness/workout-analysis</code> — workout calories, training load, recovery/hydration output.</li>
+                      <li><code>POST /fitness/heart-rate-zones</code>, <code>/fitness/vo2max</code>, <code>/fitness/pace</code> — cardio calculations.</li>
+                      <li><code>POST /fitness/strength-analysis</code>, <code>/fitness/session-volume</code> — lift estimates and session volume.</li>
+                      <li><code>POST /fitness/training-balance</code>, <code>/fitness/readiness</code>, <code>/fitness/hydration</code> — training-load and recovery outputs.</li>
+                      <li><code>POST /fitness/bmi</code>, <code>/fitness/body-fat</code>, <code>/fitness/ideal-weight</code> — body-composition estimates.</li>
+                      <li><code>POST /fitness/partner-sync</code> — calls FitMetrics for workout analysis and combines workout output with FitPulse energy information.</li>
+                      <li><code>POST /reports/fitness-sheet</code> — downloadable PDF report.</li>
+                    </ul>
+                  </div>
+                  <div class="service-subcard">
+                    <h4>FitMetrics API (base path <code>/api/v1</code>)</h4>
+                    <ul>
+                      <li><code>POST /metrics/workout-analysis</code> — workout summary including activity calories, HR intensity/zone, TRIMP, recovery, and hydration.</li>
+                      <li><code>POST /metrics/calories-burned</code>, <code>/metrics/workout-intensity</code>, <code>/metrics/heart-rate-zones</code>, <code>/metrics/hydration</code> — individual workout metrics.</li>
+                      <li><code>POST /metrics/training-balance</code>, <code>/metrics/readiness</code> — training history and recovery analysis.</li>
+                      <li><code>POST /metrics/pace</code>, <code>/metrics/vo2max</code>, <code>/metrics/strength-analysis</code>, <code>/metrics/session-volume</code> — cardio and strength calculations.</li>
+                      <li><code>POST /metrics/energy-balance</code> — requests maintenance calories from FitPulse, totals exercise calories for supplied workouts, and returns a net balance/projection.</li>
+                    </ul>
+                  </div>
+                </div>
+                <h4>Authentication and Responses</h4>
+                <p>
+                  Fitness/metrics endpoints are protected with an <code>X-API-Key</code> header. Public/demo and partner keys are configured in each service; free API keys can be issued through the key endpoint. Responses use a JSON envelope such as <code>{"success": true, "data": {...}}</code>; validation and service errors use appropriate HTTP error responses. Rate limiting is configured through environment variables and is process-local.
+                </p>
+              </div>
+            </article>
+
+            <!-- 9. Users, Inputs, and Outputs -->
+            <article id="sec-9" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">09 / users-inputs-outputs.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>9. Elaborate on Users, Inputs (Types, Formats), and Output</h3>
+                <h4>Intended Users</h4>
+                <ul>
+                  <li>Athletes and fitness enthusiasts seeking educational estimates and workout summaries.</li>
+                  <li>Coaches or instructors reviewing session metrics and training-load trends.</li>
+                  <li>Developers demonstrating or integrating fitness analytics through REST APIs.</li>
+                  <li>Project evaluators reviewing a two-service API integration.</li>
+                </ul>
+
+                <h4>FitPulse Inputs</h4>
+                <div class="saas-table-wrap">
+                  <table class="saas-table">
+                    <thead>
+                      <tr><th>Input Group</th><th>Example Fields</th><th>Format</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>Athlete Profile</strong></td><td>athlete name, age, gender, height (cm), weight (kg)</td><td>JSON numbers/strings or web form fields</td></tr>
+                      <tr><td><strong>Metabolic / Body Measurements</strong></td><td>activity level, goal, neck/waist/optional hip, body-fat estimate</td><td>enums and numeric values</td></tr>
+                      <tr><td><strong>Workout / Cardio</strong></td><td>activity, duration (minutes), average/resting/max HR (bpm), 5K time, Cooper distance, distance</td><td>JSON values / form fields</td></tr>
+                      <tr><td><strong>Strength</strong></td><td>exercise, lifted weight (kg), repetitions, bodyweight, sets</td><td>JSON object/list</td></tr>
+                      <tr><td><strong>Training / Recovery</strong></td><td>daily load series, hours since session, sleep hours, soreness, climate</td><td>JSON list/numbers/enums</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h4>FitMetrics Inputs</h4>
+                <div class="saas-table-wrap">
+                  <table class="saas-table">
+                    <thead>
+                      <tr><th>Input Group</th><th>Example Fields</th><th>Format</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><td><strong>Athlete / Workout Profile</strong></td><td>age, gender, weight (kg), activity, duration (minutes)</td><td>JSON values / form fields</td></tr>
+                      <tr><td><strong>Heart-Rate Data</strong></td><td>resting HR and average HR (bpm)</td><td>JSON numbers</td></tr>
+                      <tr><td><strong>Hydration Context</strong></td><td>intensity, climate, optional pre/post workout weight</td><td>JSON values / form fields</td></tr>
+                      <tr><td><strong>Training History</strong></td><td>daily loads, sleep, soreness, recovery time</td><td>JSON lists/numbers</td></tr>
+                      <tr><td><strong>Energy Balance</strong></td><td>calories eaten, activity level, list of workouts</td><td>JSON numbers/list of objects</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <h4>Outputs</h4>
+                <ul>
+                  <li><strong>FitPulse:</strong> 24-item summary with domains, calculated values, and supporting detail; metabolic profile; cardio zones/VO₂max/pace; strength estimates; training balance/readiness; BMI/body-fat/ideal-weight estimates; downloadable PDF.</li>
+                  <li><strong>FitMetrics:</strong> Per-workout calories, HR reserve percentage and zone, training-load score, recovery/hydration guidance, and energy-balance summary using FitPulse's maintenance estimate.</li>
+                  <li><strong>Both:</strong> JSON API responses and interactive web pages; Swagger/OpenAPI documentation for developers.</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 10. References & Conclusion -->
+            <article id="sec-10" class="writeup-BrowserCard">
+              <div class="browser-chrome">
+                <div class="chrome-dots"><span class="chrome-dot"></span><span class="chrome-dot"></span><span class="chrome-dot"></span></div>
+                <div class="chrome-url-box">10 / references-and-conclusion.md</div>
+                <span></span>
+              </div>
+              <div class="writeup-card-body">
+                <h3>10. References &amp; Conclusion</h3>
+                <ol>
+                  <li>Mifflin, M. D., et al. (1990). “A new predictive equation for resting energy expenditure in healthy individuals.” <em>The American Journal of Clinical Nutrition</em>, 51(2), 241–247. DOI: 10.1093/ajcn/51.2.241.</li>
+                  <li>Roza, A. M., &amp; Shizgal, H. M. (1984). “The Harris Benedict equation reevaluated: resting energy requirements and the body cell mass.” <em>The American Journal of Clinical Nutrition</em>, 40(1), 168–182. DOI: 10.1093/ajcn/40.1.168.</li>
+                  <li>Katch, F. I., &amp; McArdle, W. D. Lean-body-mass-based resting energy expenditure equation (370 + 21.6 × lean mass).</li>
+                  <li>Tanaka, H., Monahan, K. D., &amp; Seals, D. R. (2001). “Age-predicted maximal heart rate revisited.” <em>Journal of the American College of Cardiology</em>, 37(1), 153–156. DOI: 10.1016/S0735-1097(00)01054-8.</li>
+                  <li>Cooper, K. H. (1968). “A means of assessing maximal oxygen intake: correlation between field and treadmill testing.” <em>JAMA</em>, 203(3), 201–204.</li>
+                  <li>Uth, N., Sørensen, H., Overgaard, K., &amp; Pedersen, P. K. (2004). “Estimation of VO₂max from the ratio between HRmax and HRrest—the Heart Rate Ratio Method.” <em>European Journal of Applied Physiology</em>, 91, 111–115.</li>
+                  <li>Riegel, P. S. (1981). “Athletic records and human endurance.” <em>American Scientist</em>, 69(3), 285–290.</li>
+                  <li>Brzycki, M. (1993). “Strength testing—Predicting a one-rep max from reps-to-fatigue.” <em>Journal of Physical Education, Recreation &amp; Dance</em>, 64(1), 88–90.</li>
+                  <li>Banister, E. W. (1991). “Modeling elite athletic performance.” In <em>Physiological Testing of the High-Performance Athlete</em>, 2nd ed., Human Kinetics.</li>
+                  <li>Foster, C. (1998). “Monitoring training in athletes with reference to overtraining syndrome.” <em>Medicine &amp; Science in Sports &amp; Exercise</em>, 30(7), 1164–1168.</li>
+                  <li>American College of Sports Medicine (ACSM). <em>ACSM's Guidelines for Exercise Testing and Prescription</em>.</li>
+                  <li>Epley, Hamwi, Devine, Robinson, and Miller equations, MET/activity values, and the U.S. Navy circumference method.</li>
+                  <li>FastAPI Documentation: <a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer" class="mint-highlight">https://fastapi.tiangolo.com/</a></li>
+                  <li>Pydantic Documentation: <a href="https://docs.pydantic.dev/" target="_blank" rel="noopener noreferrer" class="mint-highlight">https://docs.pydantic.dev/</a></li>
+                  <li>Vercel Python Functions Documentation: <a href="https://vercel.com/docs/functions/runtimes/python" target="_blank" rel="noopener noreferrer" class="mint-highlight">https://vercel.com/docs/functions/runtimes/python</a></li>
+                </ol>
+
+                <h4>Conclusion</h4>
+                <p>
+                  FitPulse and FitMetrics demonstrate a modular approach to fitness analytics: FitPulse specializes in broad multi-domain calculations, while FitMetrics specializes in workout analysis and energy balance. Their APIs integrate maintenance-energy and workout results, while their web interfaces make the services accessible to non-developer users. The numerical results should be interpreted as formula-based estimates whose accuracy depends on the quality of user inputs and the assumptions of each model.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="saaspo-footer">
+        <div class="footer-row">
+          <div>
+            <strong>Abdul Maajith (23MIC0052)</strong> • Advanced Python Programming Portfolio • Partner: Yasash S (23MIC0060)
+          </div>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+            <span>Submitted to: <a href="mailto:sharmilabanu.k@vit.ac.in" class="mint-highlight">sharmilabanu.k@vit.ac.in</a></span>
+            <a href="https://drive.google.com/file/d/1KAt3AgmhTMgsV5BM_nq_22fc_CxBhr0z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="mint-highlight">Demo Video ↗</a>
+            <a href="https://docs.google.com/presentation/d/1J4ulRUiGNSI8FBWNFJlbPnK9Ii4Ldlti/edit?usp=sharing&ouid=114368354150813655059&rtpof=true&sd=true" target="_blank" rel="noopener noreferrer" class="mint-highlight">Project PPT ↗</a>
+            <a href="https://drive.google.com/drive/folders/192Q93fd3EKqDnYzhzgLjVK0Cgw5Fhee3?usp=sharing" target="_blank" rel="noopener noreferrer" class="mint-highlight">Drive Folder ↗</a>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
